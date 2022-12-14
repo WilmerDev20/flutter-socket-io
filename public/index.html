@@ -10,6 +10,7 @@
     <h1>Acceso denegado</h1>
 
     <script src="socket.io/socket.io.js"></script>
+    
 
     <script>
         var socket= io();
@@ -21,14 +22,24 @@
             console.log('perdimos comunicacion con el servidor');
         })
 
-
+        //emitiendo 
         socket.emit('mensaje',{nombre:'Wilmer'});
 
+
+         //escuchando
         socket.on('mensaje',function(payload){
             console.log('Escuchando: ',payload);
         })
 
-
+        //escuchando
+        socket.on('emitir mensaje',function(payload){
+            console.log('emitir mensaje: ',payload);
+        })
+        socket.on('bandas activas',function(bands){
+            console.clear();
+            console.table(bands);
+        })
+        
 
 
 
